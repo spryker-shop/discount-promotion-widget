@@ -18,6 +18,7 @@
                         name: product.name,
                         abstractId: product.idProductAbstract,
                         url: product.url,
+                        product: product,
                         imageUrl: (product.images|length ? product.images.0.externalUrlSmall : ''),
                         price: product.prices.DEFAULT,
                         originalPrice: (product.prices.ORIGINAL is defined ? product.prices.ORIGINAL : null)
