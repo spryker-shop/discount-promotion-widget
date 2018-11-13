@@ -9,6 +9,8 @@ namespace SprykerShop\Yves\DiscountPromotionWidget\Widget;
 
 use Generated\Shared\Transfer\PromotionItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Client\Customer\CustomerClient;
+use Spryker\Client\Price\PriceClient;
 use Spryker\Yves\Kernel\Widget\AbstractWidget;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -55,7 +57,11 @@ class CartDiscountPromotionProductListWidget extends AbstractWidget
     protected function getPromotionProducts(QuoteTransfer $quoteTransfer, Request $request): array
     {
         $promotionProducts = [];
+        $abstractIds = [];
+        $customer = (new CustomerClient())->getCustomer();
+        $priceMode = (new PriceClient())->getCurrentPriceMode();
         foreach ($quoteTransfer->getPromotionItems() as $promotionItemTransfer) {
+            $abstractIds[] = $promotionItemTransfer->getIdProductAbstract();
             $promotionItemTransfer->requireAbstractSku();
 
             $productStorageData = $this->getFactory()
@@ -71,7 +77,9 @@ class CartDiscountPromotionProductListWidget extends AbstractWidget
                 ->mapProductStorageData(
                     $productStorageData,
                     $this->getLocale(),
-                    $this->getSelectedAttributes($request, $promotionItemTransfer->getAbstractSku())
+                    $this->getSelectedAttributes($request, $promotionItemTransfer->getAbstractSku()),
+                    $customer,
+                    $priceMode
                 );
 
             $productViewTransfer->setPromotionItem($promotionItemTransfer);

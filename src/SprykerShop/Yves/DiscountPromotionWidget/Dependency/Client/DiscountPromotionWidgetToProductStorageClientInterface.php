@@ -7,6 +7,8 @@
 
 namespace SprykerShop\Yves\DiscountPromotionWidget\Dependency\Client;
 
+use Generated\Shared\Transfer\CustomerTransfer;
+
 interface DiscountPromotionWidgetToProductStorageClientInterface
 {
     /**
@@ -34,5 +36,5 @@ interface DiscountPromotionWidgetToProductStorageClientInterface
      *
      * @return \Generated\Shared\Transfer\ProductViewTransfer
      */
-    public function mapProductStorageData(array $data, $localeName, array $selectedAttributes = []);
+    public function mapProductStorageData(array $data, $localeName, array $selectedAttributes = [], ?CustomerTransfer $customerTransfer = null, ?string $priceMode = null);
 }
