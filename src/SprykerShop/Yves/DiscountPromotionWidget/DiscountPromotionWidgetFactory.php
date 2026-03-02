@@ -21,33 +21,21 @@ use SprykerShop\Yves\DiscountPromotionWidget\Reader\DiscountPromotionProductRead
 
 class DiscountPromotionWidgetFactory extends AbstractFactory
 {
-    /**
-     * @return \SprykerShop\Yves\DiscountPromotionWidget\Dependency\Client\DiscountPromotionWidgetToProductStorageClientInterface
-     */
     public function getProductStorageClient(): DiscountPromotionWidgetToProductStorageClientInterface
     {
         return $this->getProvidedDependency(DiscountPromotionWidgetDependencyProvider::CLIENT_PRODUCT_STORAGE);
     }
 
-    /**
-     * @return \SprykerShop\Yves\DiscountPromotionWidget\Dependency\Service\DiscountPromotionWidgetToDiscountServiceInterface
-     */
     public function getDiscountService(): DiscountPromotionWidgetToDiscountServiceInterface
     {
         return $this->getProvidedDependency(DiscountPromotionWidgetDependencyProvider::SERVICE_DISCOUNT);
     }
 
-    /**
-     * @return \SprykerShop\Yves\DiscountPromotionWidget\Expander\CartFormWidgetParameterExpanderInterface
-     */
     public function createCartFormWidgetParameterExpander(): CartFormWidgetParameterExpanderInterface
     {
         return new CartFormWidgetParameterExpander();
     }
 
-    /**
-     * @return \SprykerShop\Yves\DiscountPromotionWidget\Reader\DiscountPromotionProductReaderInterface
-     */
     public function createDiscountPromotionProductReader(): DiscountPromotionProductReaderInterface
     {
         return new DiscountPromotionProductReader(
@@ -56,17 +44,11 @@ class DiscountPromotionWidgetFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \SprykerShop\Yves\DiscountPromotionWidget\Reader\DiscountPromotionDiscountReaderInterface
-     */
     public function createDiscountPromotionDiscountReader(): DiscountPromotionDiscountReaderInterface
     {
         return new DiscountPromotionDiscountReader();
     }
 
-    /**
-     * @return \SprykerShop\Yves\DiscountPromotionWidget\Expander\DiscountPromotionProductPriceExpanderInterface
-     */
     public function createDiscountPromotionProductPriceExpander(): DiscountPromotionProductPriceExpanderInterface
     {
         return new DiscountPromotionProductPriceExpander($this->getDiscountService());

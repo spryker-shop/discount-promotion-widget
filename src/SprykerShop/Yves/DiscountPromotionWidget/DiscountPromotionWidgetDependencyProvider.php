@@ -51,11 +51,6 @@ class DiscountPromotionWidgetDependencyProvider extends AbstractBundleDependency
         return $container;
     }
 
-    /**
-     * @param \Spryker\Yves\Kernel\Container $container
-     *
-     * @return \Spryker\Yves\Kernel\Container
-     */
     protected function addDiscountService(Container $container): Container
     {
         $container->set(static::SERVICE_DISCOUNT, function (Container $container) {

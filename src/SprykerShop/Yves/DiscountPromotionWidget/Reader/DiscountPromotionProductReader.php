@@ -31,10 +31,6 @@ class DiscountPromotionProductReader implements DiscountPromotionProductReaderIn
      */
     protected $discountPromotionProductPriceExpander;
 
-    /**
-     * @param \SprykerShop\Yves\DiscountPromotionWidget\Dependency\Client\DiscountPromotionWidgetToProductStorageClientInterface $productStorageClient
-     * @param \SprykerShop\Yves\DiscountPromotionWidget\Expander\DiscountPromotionProductPriceExpanderInterface $discountPromotionProductPriceExpander
-     */
     public function __construct(
         DiscountPromotionWidgetToProductStorageClientInterface $productStorageClient,
         DiscountPromotionProductPriceExpanderInterface $discountPromotionProductPriceExpander
@@ -127,11 +123,6 @@ class DiscountPromotionProductReader implements DiscountPromotionProductReaderIn
         return $indexedProductViewTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PromotionItemTransfer $promotionItemTransfer
-     *
-     * @return string
-     */
     protected function createPromotionProductBucketIdentifier(PromotionItemTransfer $promotionItemTransfer): string
     {
         return sprintf(

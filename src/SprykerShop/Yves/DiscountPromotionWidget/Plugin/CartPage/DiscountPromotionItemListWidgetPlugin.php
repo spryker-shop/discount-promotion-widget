@@ -23,12 +23,6 @@ class DiscountPromotionItemListWidgetPlugin extends AbstractWidgetPlugin impleme
      */
     public const PARAM_VARIANT_ATTRIBUTES = 'attributes';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return void
-     */
     public function initialize(QuoteTransfer $quoteTransfer, Request $request): void
     {
         $widget = new CartDiscountPromotionProductListWidget($quoteTransfer, $request);
@@ -36,17 +30,11 @@ class DiscountPromotionItemListWidgetPlugin extends AbstractWidgetPlugin impleme
         $this->parameters = $widget->getParameters();
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return static::NAME;
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return CartDiscountPromotionProductListWidget::getTemplate();

@@ -36,10 +36,6 @@ class CartDiscountPromotionProductListWidget extends AbstractWidget
      */
     protected const PARAMETER_UNIQUE_DISCOUNTS = 'uniqueDiscounts';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     */
     public function __construct(QuoteTransfer $quoteTransfer, Request $request)
     {
         $this->addCartParameter($quoteTransfer);
@@ -48,38 +44,21 @@ class CartDiscountPromotionProductListWidget extends AbstractWidget
         $this->addUniqueDiscountsParameter($quoteTransfer);
     }
 
-    /**
-     * @return string
-     */
     public static function getName(): string
     {
         return 'CartDiscountPromotionProductListWidget';
     }
 
-    /**
-     * @return string
-     */
     public static function getTemplate(): string
     {
         return '@DiscountPromotionWidget/views/cart-discount-promotion-products-list/cart-discount-promotion-products-list.twig';
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function addCartParameter(QuoteTransfer $quoteTransfer): void
     {
         $this->addParameter(static::PARAMETER_CART, $quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return void
-     */
     protected function addPromotionProductsParameter(QuoteTransfer $quoteTransfer, Request $request): void
     {
         $promotionProducts = $this->getFactory()
@@ -89,11 +68,6 @@ class CartDiscountPromotionProductListWidget extends AbstractWidget
         $this->addParameter(static::PARAMETER_PROMOTION_PRODUCTS, $promotionProducts);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function addAbstractSkusGroupedByIdDiscountParameter(QuoteTransfer $quoteTransfer): void
     {
         $abstractSkusGroupedByIdDiscount = $this->getFactory()
@@ -106,11 +80,6 @@ class CartDiscountPromotionProductListWidget extends AbstractWidget
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return void
-     */
     protected function addUniqueDiscountsParameter(QuoteTransfer $quoteTransfer): void
     {
         $uniqueDiscounts = $this->getFactory()

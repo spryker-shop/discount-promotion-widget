@@ -32,20 +32,11 @@ class DiscountPromotionProductPriceExpander implements DiscountPromotionProductP
      */
     protected $discountService;
 
-    /**
-     * @param \SprykerShop\Yves\DiscountPromotionWidget\Dependency\Service\DiscountPromotionWidgetToDiscountServiceInterface $discountService
-     */
     public function __construct(DiscountPromotionWidgetToDiscountServiceInterface $discountService)
     {
         $this->discountService = $discountService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PromotionItemTransfer $promotionItemTransfer
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
-     */
     public function expandWithDiscountPromotionalPrice(
         PromotionItemTransfer $promotionItemTransfer,
         ProductViewTransfer $productViewTransfer

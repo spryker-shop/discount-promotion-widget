@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\PromotionItemTransfer;
 
 interface DiscountPromotionProductPriceExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PromotionItemTransfer $promotionItemTransfer
-     * @param \Generated\Shared\Transfer\ProductViewTransfer $productViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductViewTransfer
-     */
     public function expandWithDiscountPromotionalPrice(
         PromotionItemTransfer $promotionItemTransfer,
         ProductViewTransfer $productViewTransfer
