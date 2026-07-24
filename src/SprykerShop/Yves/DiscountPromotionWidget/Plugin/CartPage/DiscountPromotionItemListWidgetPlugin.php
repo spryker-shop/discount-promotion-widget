@@ -23,6 +23,11 @@ class DiscountPromotionItemListWidgetPlugin extends AbstractWidgetPlugin impleme
      */
     public const PARAM_VARIANT_ATTRIBUTES = 'attributes';
 
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
     public function initialize(QuoteTransfer $quoteTransfer, Request $request): void
     {
         $widget = new CartDiscountPromotionProductListWidget($quoteTransfer, $request);
@@ -30,11 +35,21 @@ class DiscountPromotionItemListWidgetPlugin extends AbstractWidgetPlugin impleme
         $this->parameters = $widget->getParameters();
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
     public static function getName(): string
     {
         return static::NAME;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     */
     public static function getTemplate(): string
     {
         return CartDiscountPromotionProductListWidget::getTemplate();
