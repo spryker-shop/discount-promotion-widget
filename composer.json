@@ -7,7 +7,7 @@
         "php": ">=8.3",
         "spryker-shop/cart-page-extension": "^1.1.0",
         "spryker-shop/shop-application-extension": "^1.2.0",
-        "spryker-shop/shop-ui": "^1.27.0",
+        "spryker-shop/shop-ui": "^1.27.0 || ^2.0.0",
         "spryker/discount": "^9.19.0",
         "spryker/kernel": "^3.30.0",
         "spryker/product-storage": "^1.14.0",
