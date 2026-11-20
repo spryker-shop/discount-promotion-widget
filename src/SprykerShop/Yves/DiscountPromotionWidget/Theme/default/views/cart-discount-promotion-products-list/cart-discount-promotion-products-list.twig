@@ -23,7 +23,8 @@
 
         {% block discounts %}
             {% for discount in data.uniqueDiscounts %}
-                <div class="{{ promotionItemClassName }}">
+                {# Every discount's products as one list for the traceable events, e.g. GA4 view_item_list; the name is the description the shopper sees. #}
+                <div class="{{ promotionItemClassName }}" data-item-list-id="discount_promotion_{{ discount.discountPromotion.idDiscountPromotion }}" data-item-list-name="{{ discount.description }}">
                     {% block discountInfo %}
                         <div class="spacing">
                             <div class="{{ promotionItemTitleClassName }}">{{ discount.description }}</div>
@@ -128,6 +129,10 @@
                     {% endblock %}
                 </div>
             {% endfor %}
+        {% endblock %}
+
+        {% block productTrackingDetails %}
+            {% widget 'ProductTrackingDetailsWidget' args [data.promotionProducts] only %}{% endwidget %}
         {% endblock %}
     {% endif %}
 {% endblock %}
